@@ -263,6 +263,147 @@
         startFallbackParticles();
       });
   }
+   /* =========================================
+   DEPLOY JIGAR
+   ========================================= */
+
+function deployJigar() {
+
+    const modal = document.getElementById("deployModal");
+    const terminal = document.getElementById("terminalOutput");
+    const result = document.getElementById("deployResult");
+
+    modal.classList.add("active");
+
+    terminal.innerHTML = "";
+    result.classList.remove("show");
+
+    const messages = [
+
+        {
+            text: "$ ./deploy-jigar.sh",
+            className: "terminal-info"
+        },
+
+        {
+            text: "[INFO] Connecting to AWS...",
+            className: "terminal-info"
+        },
+
+        {
+            text: "[OK] AWS connection established ✓",
+            className: "terminal-success"
+        },
+
+        {
+            text: "[INFO] Starting Docker container...",
+            className: "terminal-info"
+        },
+
+        {
+            text: "[OK] Container started ✓",
+            className: "terminal-success"
+        },
+
+        {
+            text: "[INFO] Running CI/CD pipeline...",
+            className: "terminal-info"
+        },
+
+        {
+            text: "[OK] Pipeline completed ✓",
+            className: "terminal-success"
+        },
+
+        {
+            text: "[INFO] Checking infrastructure...",
+            className: "terminal-info"
+        },
+
+        {
+            text: "[OK] Terraform state verified ✓",
+            className: "terminal-success"
+        },
+
+        {
+            text: "[INFO] Checking monitoring...",
+            className: "terminal-info"
+        },
+
+        {
+            text: "[OK] Prometheus healthy ✓",
+            className: "terminal-success"
+        },
+
+        {
+            text: "[OK] Grafana healthy ✓",
+            className: "terminal-success"
+        }
+
+    ];
+
+    let index = 0;
+
+    function showNextLine() {
+
+        if (index >= messages.length) {
+
+            setTimeout(() => {
+
+                result.classList.add("show");
+
+            }, 500);
+
+            return;
+        }
+
+        const line = document.createElement("div");
+
+        line.className =
+            "terminal-line " +
+            messages[index].className;
+
+        line.textContent =
+            messages[index].text;
+
+        terminal.appendChild(line);
+
+        index++;
+
+        setTimeout(showNextLine, 500);
+    }
+
+    showNextLine();
+}
+
+
+/* =========================================
+   CLOSE DEPLOY MODAL
+   ========================================= */
+
+function closeDeploy() {
+
+    const modal =
+        document.getElementById("deployModal");
+
+    modal.classList.remove("active");
+
+}
+
+
+/* =========================================
+   CLOSE WITH ESC KEY
+   ========================================= */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        closeDeploy();
+
+    }
+
+});
 
   // A file:// URL cannot reliably load an ES module from a remote CDN because of browser origin rules.
   // Use a local 2D fallback there; the full Three.js scene runs on Cloudflare/HTTP(S).

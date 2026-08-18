@@ -3,3 +3,366 @@
 @media(max-width:900px){.nav-links{display:none}.site-header{padding-right:10px}.menu-toggle{display:flex;width:40px;height:38px;border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:11px;align-items:center;justify-content:center;flex-direction:column;gap:5px;color:var(--text)}.menu-toggle span{width:15px;height:1px;background:currentColor}.nav-cta{display:none}.site-header.open .nav-links{display:flex;position:absolute;left:10px;right:10px;top:58px;padding:16px;flex-direction:column;background:rgba(8,13,22,.95);border:1px solid var(--line);border-radius:16px}.light .site-header.open .nav-links{background:rgba(255,255,255,.95)}.hero{grid-template-columns:1fr;padding-top:140px}.hero-terminal{min-height:420px}.terminal-window{transform:none}.stack-grid{grid-template-columns:repeat(2,1fr)}.project-grid{grid-template-columns:1fr 1fr}.project-feature{grid-column:1/-1;grid-row:auto}.about-grid{grid-template-columns:1fr}.contact-card{align-items:flex-start;flex-direction:column}.contact-actions{justify-content:flex-start}.section-heading{grid-template-columns:52px 1fr}}
 @media(max-width:620px){.section-shell{width:min(100% - 26px,1180px)}.hero{padding-top:128px;gap:24px}.hero h1{font-size:50px}.hero-sub{font-size:14px}.hero-stats{gap:18px;flex-wrap:wrap}.hero-stats strong{font-size:20px}.hero-terminal{min-height:390px}.terminal-body{font-size:10px;padding:18px}.orbit-card{display:none}.section-block{padding-top:86px}.stack-grid,.project-grid{grid-template-columns:1fr}.section-heading{grid-template-columns:1fr;gap:8px}.section-number{padding-top:0}.section-heading h2{font-size:42px}.timeline{padding-left:21px}.timeline article{padding-left:29px}.contact-card{padding:30px}.site-footer{flex-direction:column}.back-top{right:68px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.tilt-card{transform:none!important}}
+
+/* =========================================
+   DEPLOY JIGAR BUTTON
+   ========================================= */
+
+.deploy-btn {
+    padding: 14px 24px;
+    border: 1px solid #00aaff;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #0077ff, #00bfff);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.25);
+}
+
+.deploy-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(0, 170, 255, 0.55);
+}
+
+
+/* =========================================
+   MODAL BACKGROUND
+   ========================================= */
+
+.deploy-modal {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.82);
+
+    backdrop-filter: blur(8px);
+
+    z-index: 9999;
+
+    padding: 20px;
+}
+
+.deploy-modal.active {
+    display: flex;
+}
+
+
+/* =========================================
+   TERMINAL WINDOW
+   ========================================= */
+
+.terminal-window {
+    width: min(850px, 95vw);
+    max-height: 85vh;
+
+    background: #07111f;
+
+    border: 1px solid rgba(0, 170, 255, 0.45);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 40px rgba(0, 140, 255, 0.25),
+        0 20px 80px rgba(0, 0, 0, 0.7);
+
+    animation: terminalOpen 0.35s ease;
+}
+
+@keyframes terminalOpen {
+
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+}
+
+
+/* =========================================
+   TERMINAL HEADER
+   ========================================= */
+
+.terminal-header {
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 15px;
+
+    background: #0c1828;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 7px;
+}
+
+.terminal-buttons span {
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+}
+
+.terminal-red {
+    background: #ff5f56;
+}
+
+.terminal-yellow {
+    background: #ffbd2e;
+}
+
+.terminal-green {
+    background: #27c93f;
+}
+
+.terminal-title {
+    margin-left: 15px;
+
+    font-family: monospace;
+
+    color: #8aa4bf;
+
+    font-size: 13px;
+}
+
+.terminal-close {
+    margin-left: auto;
+
+    background: none;
+
+    border: none;
+
+    color: #8aa4bf;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.terminal-close:hover {
+    color: white;
+}
+
+
+/* =========================================
+   TERMINAL BODY
+   ========================================= */
+
+.terminal-body {
+    padding: 30px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    color: #d5e7f5;
+
+    min-height: 350px;
+
+    overflow-y: auto;
+}
+
+#terminalOutput {
+    line-height: 1.8;
+
+    font-size: 15px;
+}
+
+.terminal-line {
+    margin-bottom: 7px;
+}
+
+.terminal-success {
+    color: #39ff88;
+}
+
+.terminal-info {
+    color: #4db8ff;
+}
+
+.terminal-warning {
+    color: #ffcc66;
+}
+
+
+/* =========================================
+   DEPLOYMENT RESULT
+   ========================================= */
+
+.deploy-result {
+    display: none;
+
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(0, 170, 255, 0.25);
+
+    text-align: center;
+
+    animation: resultAppear 0.6s ease;
+}
+
+.deploy-result.show {
+    display: block;
+}
+
+@keyframes resultAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.success-icon {
+    font-size: 55px;
+
+    margin-bottom: 10px;
+
+    animation: rocket 1.5s ease infinite alternate;
+}
+
+@keyframes rocket {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-8px);
+    }
+
+}
+
+.deploy-result h2 {
+    color: #39ff88;
+
+    margin-bottom: 20px;
+
+    font-size: 22px;
+}
+
+.online {
+    color: #39ff88;
+
+    font-weight: bold;
+}
+
+.hire-message {
+    margin: 25px auto;
+
+    max-width: 600px;
+
+    padding: 20px;
+
+    border: 1px solid rgba(0, 170, 255, 0.25);
+
+    border-radius: 8px;
+
+    background: rgba(0, 170, 255, 0.05);
+
+    line-height: 1.7;
+}
+
+.hire-message span {
+    color: #ffcc66;
+}
+
+.hire-message strong {
+    color: #39ff88;
+}
+
+
+/* =========================================
+   ACTION BUTTONS
+   ========================================= */
+
+.deploy-actions {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.deploy-action-btn {
+    padding: 10px 18px;
+
+    border: 1px solid rgba(0, 170, 255, 0.4);
+
+    border-radius: 6px;
+
+    color: white;
+
+    text-decoration: none;
+
+    background: rgba(0, 120, 255, 0.12);
+
+    transition: 0.25s ease;
+}
+
+.deploy-action-btn:hover {
+    background: rgba(0, 140, 255, 0.3);
+
+    transform: translateY(-2px);
+
+    border-color: #00aaff;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .terminal-body {
+        padding: 20px;
+
+        font-size: 13px;
+    }
+
+    .terminal-window {
+        max-height: 90vh;
+    }
+
+    .deploy-actions {
+        flex-direction: column;
+    }
+
+    .deploy-action-btn {
+        width: 100%;
+
+        box-sizing: border-box;
+    }
+
+}
