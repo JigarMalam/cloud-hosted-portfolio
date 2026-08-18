@@ -3,12 +3,781 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello Page</title>
+
+    <title>DevOps & Cloud Engineer | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b1120;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(11, 17, 32, 0.95);
+            border-bottom: 1px solid #1e293b;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1150px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        .logo span {
+            color: #f8fafc;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 90vh;
+            max-width: 1150px;
+            margin: auto;
+            padding: 100px 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 7px 14px;
+            border: 1px solid #334155;
+            border-radius: 20px;
+            color: #38bdf8;
+            margin-bottom: 20px;
+            background: #111827;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 72px);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #94a3b8;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 22px;
+            border-radius: 7px;
+            border: 1px solid #38bdf8;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: #38bdf8;
+            color: #020617;
+        }
+
+        .btn-primary:hover {
+            background: #7dd3fc;
+        }
+
+        .btn-secondary:hover {
+            background: #172033;
+        }
+
+        /* ================= SECTIONS ================= */
+
+        section {
+            max-width: 1150px;
+            margin: auto;
+            padding: 90px 25px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .section-title span {
+            color: #38bdf8;
+        }
+
+        .section-description {
+            color: #94a3b8;
+            margin-bottom: 40px;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .about-card {
+            background: #111827;
+            border: 1px solid #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .about-card h3 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+
+        .about-card p {
+            color: #94a3b8;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .skill {
+            background: #111827;
+            border: 1px solid #1e293b;
+            padding: 22px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .skill h3 {
+            margin-bottom: 8px;
+            color: #f8fafc;
+        }
+
+        .skill p {
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        /* ================= PROJECTS ================= */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .project h3 {
+            color: #38bdf8;
+            margin-bottom: 12px;
+        }
+
+        .project p {
+            color: #94a3b8;
+            margin-bottom: 18px;
+        }
+
+        .tech {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tech span {
+            background: #1e293b;
+            color: #cbd5e1;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        /* ================= EXPERIENCE ================= */
+
+        .timeline {
+            border-left: 2px solid #334155;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #38bdf8;
+            border-radius: 50%;
+            left: -37px;
+            top: 6px;
+        }
+
+        .timeline-item h3 {
+            color: #f8fafc;
+        }
+
+        .timeline-item .date {
+            color: #38bdf8;
+            font-size: 14px;
+        }
+
+        .timeline-item p {
+            color: #94a3b8;
+            margin-top: 8px;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            text-align: center;
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 15px;
+            padding: 60px 30px;
+        }
+
+        .contact p {
+            color: #94a3b8;
+            margin: 15px auto 25px;
+            max-width: 600px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: #38bdf8;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            border-top: 1px solid #1e293b;
+            text-align: center;
+            padding: 25px;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 80vh;
+                padding-top: 70px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 65px 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Hello World!</h1>
-    <p>Welcome to my website.</p>
+    <!-- ================= NAVIGATION ================= -->
+
+    <header>
+        <nav>
+            <div class="logo">
+                DevOps<span>Engineer</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <main>
+
+        <div class="hero">
+            <div class="hero-content">
+
+                <div class="tag">
+                    ☁ AWS • DevOps • Cloud
+                </div>
+
+                <h1>
+                    Building Reliable
+                    <span>Cloud Infrastructure</span>
+                </h1>
+
+                <p>
+                    Hi, I'm <strong>Jigar</strong> — a Cloud & DevOps professional
+                    focused on AWS, automation, CI/CD, containerization,
+                    Infrastructure as Code and scalable cloud infrastructure.
+                </p>
+
+                <div class="buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        View Projects
+                    </a>
+
+                    <a href="#contact" class="btn btn-secondary">
+                        Contact Me
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section id="about">
+
+            <h2 class="section-title">
+                About <span>Me</span>
+            </h2>
+
+            <p class="section-description">
+                Cloud and DevOps focused professional with hands-on experience
+                building and automating cloud environments.
+            </p>
+
+            <div class="about">
+
+                <div class="about-card">
+                    <h3>☁ Cloud Engineering</h3>
+
+                    <p>
+                        Hands-on experience with AWS services including EC2,
+                        S3, IAM, VPC, ALB, Auto Scaling, ECR, ECS and
+                        other cloud infrastructure services.
+                    </p>
+                </div>
+
+                <div class="about-card">
+                    <h3>⚙ DevOps & Automation</h3>
+
+                    <p>
+                        Experience with CI/CD pipelines, Jenkins, Docker,
+                        Terraform, Ansible, GitHub and infrastructure
+                        automation.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SKILLS ================= -->
+
+        <section id="skills">
+
+            <h2 class="section-title">
+                Technical <span>Skills</span>
+            </h2>
+
+            <p class="section-description">
+                Technologies and tools I work with.
+            </p>
+
+            <div class="skills-grid">
+
+                <div class="skill">
+                    <h3>AWS</h3>
+                    <p>
+                        EC2, S3, IAM, VPC, ALB, ASG, ECR, ECS,
+                        Fargate, CloudFront, KMS
+                    </p>
+                </div>
+
+                <div class="skill">
+                    <h3>DevOps</h3>
+                    <p>
+                        CI/CD, Jenkins, GitHub Actions,
+                        Git, Automation
+                    </p>
+                </div>
+
+                <div class="skill">
+                    <h3>Containers</h3>
+                    <p>
+                        Docker, Docker Compose,
+                        Amazon ECR, ECS, Fargate
+                    </p>
+                </div>
+
+                <div class="skill">
+                    <h3>IaC</h3>
+                    <p>
+                        Terraform, AWS CLI,
+                        Python, Boto3
+                    </p>
+                </div>
+
+                <div class="skill">
+                    <h3>Configuration</h3>
+                    <p>
+                        Ansible, Linux,
+                        Shell scripting
+                    </p>
+                </div>
+
+                <div class="skill">
+                    <h3>Monitoring</h3>
+                    <p>
+                        Prometheus, Grafana,
+                        CloudWatch
+                    </p>
+                </div>
+
+                <div class="skill">
+                    <h3>Programming</h3>
+                    <p>
+                        Python, JavaScript,
+                        Groovy, Bash
+                    </p>
+                </div>
+
+                <div class="skill">
+                    <h3>Version Control</h3>
+                    <p>
+                        Git, GitHub,
+                        Branching & Collaboration
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROJECTS ================= -->
+
+        <section id="projects">
+
+            <h2 class="section-title">
+                Featured <span>Projects</span>
+            </h2>
+
+            <p class="section-description">
+                Hands-on cloud and DevOps projects.
+            </p>
+
+            <div class="projects">
+
+                <div class="project">
+
+                    <h3>🚀 AWS DevOps Capstone</h3>
+
+                    <p>
+                        End-to-end deployment of a MERN-based application
+                        using AWS, Jenkins, Docker, Terraform, Ansible,
+                        EC2, ECR, ALB and Auto Scaling.
+                    </p>
+
+                    <div class="tech">
+                        <span>AWS</span>
+                        <span>Jenkins</span>
+                        <span>Docker</span>
+                        <span>Terraform</span>
+                        <span>Ansible</span>
+                        <span>EC2</span>
+                        <span>ECR</span>
+                    </div>
+
+                </div>
+
+
+                <div class="project">
+
+                    <h3>☁ Infrastructure Automation</h3>
+
+                    <p>
+                        Automated AWS infrastructure provisioning using
+                        Terraform, Python and Boto3 including VPC,
+                        subnets, security groups and load balancing.
+                    </p>
+
+                    <div class="tech">
+                        <span>Terraform</span>
+                        <span>Python</span>
+                        <span>Boto3</span>
+                        <span>AWS</span>
+                        <span>ALB</span>
+                    </div>
+
+                </div>
+
+
+                <div class="project">
+
+                    <h3>🔄 CI/CD Pipeline</h3>
+
+                    <p>
+                        Jenkins-based CI/CD pipeline for building Docker
+                        images, pushing them to Amazon ECR and deploying
+                        applications to AWS infrastructure.
+                    </p>
+
+                    <div class="tech">
+                        <span>Jenkins</span>
+                        <span>Groovy</span>
+                        <span>Docker</span>
+                        <span>AWS ECR</span>
+                        <span>GitHub</span>
+                    </div>
+
+                </div>
+
+
+                <div class="project">
+
+                    <h3>📊 Server Monitoring</h3>
+
+                    <p>
+                        Automated Linux server monitoring using Ansible
+                        with monitoring and visualization using
+                        Prometheus and Grafana.
+                    </p>
+
+                    <div class="tech">
+                        <span>Ansible</span>
+                        <span>Linux</span>
+                        <span>Prometheus</span>
+                        <span>Grafana</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= EXPERIENCE ================= -->
+
+        <section id="experience">
+
+            <h2 class="section-title">
+                My <span>Journey</span>
+            </h2>
+
+            <p class="section-description">
+                Professional and technical journey.
+            </p>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+
+                    <span class="date">
+                        Professional Experience
+                    </span>
+
+                    <h3>
+                        IT Support → Cloud & DevOps
+                    </h3>
+
+                    <p>
+                        Built a strong foundation in IT infrastructure
+                        and system administration before moving toward
+                        AWS Cloud Engineering and DevOps.
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <span class="date">
+                        AWS & Cloud
+                    </span>
+
+                    <h3>
+                        Cloud Engineering
+                    </h3>
+
+                    <p>
+                        Developed hands-on experience with AWS services,
+                        networking, IAM, EC2, S3, load balancing,
+                        Auto Scaling and cloud infrastructure.
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <span class="date">
+                        DevOps
+                    </span>
+
+                    <h3>
+                        Automation & CI/CD
+                    </h3>
+
+                    <p>
+                        Expanded into Docker, Jenkins, Terraform,
+                        Ansible, GitHub Actions and automated deployment
+                        pipelines.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <section id="contact">
+
+            <div class="contact">
+
+                <h2 class="section-title">
+                    Let's <span>Connect</span>
+                </h2>
+
+                <p>
+                    I'm currently interested in Cloud Engineer,
+                    DevOps Engineer and SRE opportunities.
+                    Feel free to connect with me.
+                </p>
+
+                <div class="contact-links">
+
+                    <a href="mailto:your-email@example.com">
+                        📧 Email
+                    </a>
+
+                    <a href="https://www.linkedin.com/" target="_blank">
+                        💼 LinkedIn
+                    </a>
+
+                    <a href="https://github.com/" target="_blank">
+                        🐙 GitHub
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+        © 2026 Jigar | DevOps & Cloud Engineer
+    </footer>
 
 </body>
 </html>
