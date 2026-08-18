@@ -1,783 +1,165 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>DevOps & Cloud Engineer | Portfolio</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0b1120;
-            color: #e5e7eb;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* ================= NAVBAR ================= */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(11, 17, 32, 0.95);
-            border-bottom: 1px solid #1e293b;
-            backdrop-filter: blur(10px);
-        }
-
-        nav {
-            max-width: 1150px;
-            margin: auto;
-            padding: 18px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #38bdf8;
-        }
-
-        .logo span {
-            color: #f8fafc;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #cbd5e1;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #38bdf8;
-        }
-
-        /* ================= HERO ================= */
-
-        .hero {
-            min-height: 90vh;
-            max-width: 1150px;
-            margin: auto;
-            padding: 100px 25px;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-content {
-            max-width: 750px;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 7px 14px;
-            border: 1px solid #334155;
-            border-radius: 20px;
-            color: #38bdf8;
-            margin-bottom: 20px;
-            background: #111827;
-        }
-
-        .hero h1 {
-            font-size: clamp(42px, 7vw, 72px);
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: #38bdf8;
-        }
-
-        .hero p {
-            font-size: 19px;
-            color: #94a3b8;
-            max-width: 700px;
-            margin-bottom: 30px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 22px;
-            border-radius: 7px;
-            border: 1px solid #38bdf8;
-            transition: 0.3s;
-            font-weight: bold;
-        }
-
-        .btn-primary {
-            background: #38bdf8;
-            color: #020617;
-        }
-
-        .btn-primary:hover {
-            background: #7dd3fc;
-        }
-
-        .btn-secondary:hover {
-            background: #172033;
-        }
-
-        /* ================= SECTIONS ================= */
-
-        section {
-            max-width: 1150px;
-            margin: auto;
-            padding: 90px 25px;
-        }
-
-        .section-title {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-
-        .section-title span {
-            color: #38bdf8;
-        }
-
-        .section-description {
-            color: #94a3b8;
-            margin-bottom: 40px;
-        }
-
-        /* ================= ABOUT ================= */
-
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .about-card {
-            background: #111827;
-            border: 1px solid #1e293b;
-            padding: 30px;
-            border-radius: 12px;
-        }
-
-        .about-card h3 {
-            color: #38bdf8;
-            margin-bottom: 15px;
-        }
-
-        .about-card p {
-            color: #94a3b8;
-        }
-
-        /* ================= SKILLS ================= */
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-        }
-
-        .skill {
-            background: #111827;
-            border: 1px solid #1e293b;
-            padding: 22px;
-            border-radius: 10px;
-            transition: 0.3s;
-        }
-
-        .skill:hover {
-            transform: translateY(-5px);
-            border-color: #38bdf8;
-        }
-
-        .skill h3 {
-            margin-bottom: 8px;
-            color: #f8fafc;
-        }
-
-        .skill p {
-            font-size: 14px;
-            color: #94a3b8;
-        }
-
-        /* ================= PROJECTS ================= */
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .project {
-            background: #111827;
-            border: 1px solid #1e293b;
-            border-radius: 12px;
-            padding: 30px;
-            transition: 0.3s;
-        }
-
-        .project:hover {
-            transform: translateY(-5px);
-            border-color: #38bdf8;
-        }
-
-        .project h3 {
-            color: #38bdf8;
-            margin-bottom: 12px;
-        }
-
-        .project p {
-            color: #94a3b8;
-            margin-bottom: 18px;
-        }
-
-        .tech {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .tech span {
-            background: #1e293b;
-            color: #cbd5e1;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-        }
-
-        /* ================= EXPERIENCE ================= */
-
-        .timeline {
-            border-left: 2px solid #334155;
-            padding-left: 30px;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 40px;
-        }
-
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: #38bdf8;
-            border-radius: 50%;
-            left: -37px;
-            top: 6px;
-        }
-
-        .timeline-item h3 {
-            color: #f8fafc;
-        }
-
-        .timeline-item .date {
-            color: #38bdf8;
-            font-size: 14px;
-        }
-
-        .timeline-item p {
-            color: #94a3b8;
-            margin-top: 8px;
-        }
-
-        /* ================= CONTACT ================= */
-
-        .contact {
-            text-align: center;
-            background: #111827;
-            border: 1px solid #1e293b;
-            border-radius: 15px;
-            padding: 60px 30px;
-        }
-
-        .contact p {
-            color: #94a3b8;
-            margin: 15px auto 25px;
-            max-width: 600px;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
-            color: #38bdf8;
-        }
-
-        /* ================= FOOTER ================= */
-
-        footer {
-            border-top: 1px solid #1e293b;
-            text-align: center;
-            padding: 25px;
-            color: #64748b;
-            font-size: 14px;
-        }
-
-        /* ================= RESPONSIVE ================= */
-
-        @media (max-width: 900px) {
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .about {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 700px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                min-height: 80vh;
-                padding-top: 70px;
-            }
-
-            .projects {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 65px 20px;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#070b12" />
+  <meta name="description" content="Jigar Malam — DevOps & Cloud portfolio. AWS, Docker, Jenkins, Terraform, Ansible, Kubernetes and cloud infrastructure projects." />
+  <title>Jigar Malam | DevOps & Cloud Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 </head>
-
 <body>
+  <div id="cursor-glow" aria-hidden="true"></div>
+  <div id="particles" aria-hidden="true"></div>
+  <canvas id="hero-3d" aria-hidden="true"></canvas>
 
-    <!-- ================= NAVIGATION ================= -->
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Jigar Malam home">
+      <span class="brand-mark">JM</span>
+      <span class="brand-text"><strong>JIGAR MALAM</strong><span>DEVOPS | CLOUD</span></span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation"><span></span><span></span></button>
+    <nav id="site-nav" class="nav-links">
+      <a href="#about">About</a>
+      <a href="#stack">Stack</a>
+      <a href="#projects">Projects</a>
+      <a href="#journey">Journey</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="https://github.com/JigarMalam" target="_blank" rel="noreferrer">GitHub ↗</a>
+  </header>
 
-    <header>
-        <nav>
-            <div class="logo">
-                DevOps<span>Engineer</span>
-            </div>
-
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-
-    <!-- ================= HERO ================= -->
-
-    <main>
-
-        <div class="hero">
-            <div class="hero-content">
-
-                <div class="tag">
-                    ☁ AWS • DevOps • Cloud
-                </div>
-
-                <h1>
-                    Building Reliable
-                    <span>Cloud Infrastructure</span>
-                </h1>
-
-                <p>
-                    Hi, I'm <strong>Jigar</strong> — a Cloud & DevOps professional
-                    focused on AWS, automation, CI/CD, containerization,
-                    Infrastructure as Code and scalable cloud infrastructure.
-                </p>
-
-                <div class="buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        View Projects
-                    </a>
-
-                    <a href="#contact" class="btn btn-secondary">
-                        Contact Me
-                    </a>
-                </div>
-
-            </div>
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy"  data-aos-duration="900">
+        <div class="eyebrow"><span class="status-dot"></span> Open to Cloud / DevOps opportunities</div>
+        <p class="kicker">Cloud • Automation • Reliability</p>
+        <h1>Building cloud systems<br><span class="gradient-text">that survive real problems.</span></h1>
+        <p class="hero-sub">I’m Jigar Malam — an IT infrastructure professional moving deeper into AWS Cloud & DevOps through hands-on automation, CI/CD, containers, infrastructure as code and production-style troubleshooting.</p>
+        <div class="typing-line"><span class="prompt">$</span> <span id="typed-role">AWS / DevOps Engineer</span><span class="caret">▋</span></div>
+        <div class="hero-actions">
+          <a class="button button-primary magnetic" href="#projects">Explore projects <span>↗</span></a>
+          <a class="button button-ghost magnetic" href="#contact">Let's connect</a>
         </div>
-
-
-        <!-- ================= ABOUT ================= -->
-
-        <section id="about">
-
-            <h2 class="section-title">
-                About <span>Me</span>
-            </h2>
-
-            <p class="section-description">
-                Cloud and DevOps focused professional with hands-on experience
-                building and automating cloud environments.
-            </p>
-
-            <div class="about">
-
-                <div class="about-card">
-                    <h3>☁ Cloud Engineering</h3>
-
-                    <p>
-                        Hands-on experience with AWS services including EC2,
-                        S3, IAM, VPC, ALB, Auto Scaling, ECR, ECS and
-                        other cloud infrastructure services.
-                    </p>
-                </div>
-
-                <div class="about-card">
-                    <h3>⚙ DevOps & Automation</h3>
-
-                    <p>
-                        Experience with CI/CD pipelines, Jenkins, Docker,
-                        Terraform, Ansible, GitHub and infrastructure
-                        automation.
-                    </p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= SKILLS ================= -->
-
-        <section id="skills">
-
-            <h2 class="section-title">
-                Technical <span>Skills</span>
-            </h2>
-
-            <p class="section-description">
-                Technologies and tools I work with.
-            </p>
-
-            <div class="skills-grid">
-
-                <div class="skill">
-                    <h3>AWS</h3>
-                    <p>
-                        EC2, S3, IAM, VPC, ALB, ASG, ECR, ECS,
-                        Fargate, CloudFront, KMS
-                    </p>
-                </div>
-
-                <div class="skill">
-                    <h3>DevOps</h3>
-                    <p>
-                        CI/CD, Jenkins, GitHub Actions,
-                        Git, Automation
-                    </p>
-                </div>
-
-                <div class="skill">
-                    <h3>Containers</h3>
-                    <p>
-                        Docker, Docker Compose,
-                        Amazon ECR, ECS, Fargate
-                    </p>
-                </div>
-
-                <div class="skill">
-                    <h3>IaC</h3>
-                    <p>
-                        Terraform, AWS CLI,
-                        Python, Boto3
-                    </p>
-                </div>
-
-                <div class="skill">
-                    <h3>Configuration</h3>
-                    <p>
-                        Ansible, Linux,
-                        Shell scripting
-                    </p>
-                </div>
-
-                <div class="skill">
-                    <h3>Monitoring</h3>
-                    <p>
-                        Prometheus, Grafana,
-                        CloudWatch
-                    </p>
-                </div>
-
-                <div class="skill">
-                    <h3>Programming</h3>
-                    <p>
-                        Python, JavaScript,
-                        Groovy, Bash
-                    </p>
-                </div>
-
-                <div class="skill">
-                    <h3>Version Control</h3>
-                    <p>
-                        Git, GitHub,
-                        Branching & Collaboration
-                    </p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= PROJECTS ================= -->
-
-        <section id="projects">
-
-            <h2 class="section-title">
-                Featured <span>Projects</span>
-            </h2>
-
-            <p class="section-description">
-                Hands-on cloud and DevOps projects.
-            </p>
-
-            <div class="projects">
-
-                <div class="project">
-
-                    <h3>🚀 AWS DevOps Capstone</h3>
-
-                    <p>
-                        End-to-end deployment of a MERN-based application
-                        using AWS, Jenkins, Docker, Terraform, Ansible,
-                        EC2, ECR, ALB and Auto Scaling.
-                    </p>
-
-                    <div class="tech">
-                        <span>AWS</span>
-                        <span>Jenkins</span>
-                        <span>Docker</span>
-                        <span>Terraform</span>
-                        <span>Ansible</span>
-                        <span>EC2</span>
-                        <span>ECR</span>
-                    </div>
-
-                </div>
-
-
-                <div class="project">
-
-                    <h3>☁ Infrastructure Automation</h3>
-
-                    <p>
-                        Automated AWS infrastructure provisioning using
-                        Terraform, Python and Boto3 including VPC,
-                        subnets, security groups and load balancing.
-                    </p>
-
-                    <div class="tech">
-                        <span>Terraform</span>
-                        <span>Python</span>
-                        <span>Boto3</span>
-                        <span>AWS</span>
-                        <span>ALB</span>
-                    </div>
-
-                </div>
-
-
-                <div class="project">
-
-                    <h3>🔄 CI/CD Pipeline</h3>
-
-                    <p>
-                        Jenkins-based CI/CD pipeline for building Docker
-                        images, pushing them to Amazon ECR and deploying
-                        applications to AWS infrastructure.
-                    </p>
-
-                    <div class="tech">
-                        <span>Jenkins</span>
-                        <span>Groovy</span>
-                        <span>Docker</span>
-                        <span>AWS ECR</span>
-                        <span>GitHub</span>
-                    </div>
-
-                </div>
-
-
-                <div class="project">
-
-                    <h3>📊 Server Monitoring</h3>
-
-                    <p>
-                        Automated Linux server monitoring using Ansible
-                        with monitoring and visualization using
-                        Prometheus and Grafana.
-                    </p>
-
-                    <div class="tech">
-                        <span>Ansible</span>
-                        <span>Linux</span>
-                        <span>Prometheus</span>
-                        <span>Grafana</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= EXPERIENCE ================= -->
-
-        <section id="experience">
-
-            <h2 class="section-title">
-                My <span>Journey</span>
-            </h2>
-
-            <p class="section-description">
-                Professional and technical journey.
-            </p>
-
-            <div class="timeline">
-
-                <div class="timeline-item">
-
-                    <span class="date">
-                        Professional Experience
-                    </span>
-
-                    <h3>
-                        IT Support → Cloud & DevOps
-                    </h3>
-
-                    <p>
-                        Built a strong foundation in IT infrastructure
-                        and system administration before moving toward
-                        AWS Cloud Engineering and DevOps.
-                    </p>
-
-                </div>
-
-
-                <div class="timeline-item">
-
-                    <span class="date">
-                        AWS & Cloud
-                    </span>
-
-                    <h3>
-                        Cloud Engineering
-                    </h3>
-
-                    <p>
-                        Developed hands-on experience with AWS services,
-                        networking, IAM, EC2, S3, load balancing,
-                        Auto Scaling and cloud infrastructure.
-                    </p>
-
-                </div>
-
-
-                <div class="timeline-item">
-
-                    <span class="date">
-                        DevOps
-                    </span>
-
-                    <h3>
-                        Automation & CI/CD
-                    </h3>
-
-                    <p>
-                        Expanded into Docker, Jenkins, Terraform,
-                        Ansible, GitHub Actions and automated deployment
-                        pipelines.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= CONTACT ================= -->
-
-        <section id="contact">
-
-            <div class="contact">
-
-                <h2 class="section-title">
-                    Let's <span>Connect</span>
-                </h2>
-
-                <p>
-                    I'm currently interested in Cloud Engineer,
-                    DevOps Engineer and SRE opportunities.
-                    Feel free to connect with me.
-                </p>
-
-                <div class="contact-links">
-
-                    <a href="mailto:your-email@example.com">
-                        📧 Email
-                    </a>
-
-                    <a href="https://www.linkedin.com/" target="_blank">
-                        💼 LinkedIn
-                    </a>
-
-                    <a href="https://github.com/" target="_blank">
-                        🐙 GitHub
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer>
-        © 2026 Jigar | DevOps & Cloud Engineer
-    </footer>
-
+        <div class="hero-stats">
+          <div><strong>6+</strong><span>Years IT experience</span></div>
+          <div><strong>AWS</strong><span>Hands-on cloud focus</span></div>
+          <div><strong>CI/CD</strong><span>Jenkins + Docker + IaC</span></div>
+        </div>
+      </div>
+
+      <div class="hero-terminal" data-aos="zoom-in" data-aos-delay="180" data-aos-duration="1000">
+        <div class="terminal-window glass-card tilt-card">
+          <div class="terminal-topbar"><span></span><span></span><span></span><p>jigar@cloud-lab:~</p><span class="live-chip">LIVE</span></div>
+          <div class="terminal-body">
+            <div><span class="mono-muted">01</span> <span class="cyan">terraform</span> <span class="pink">apply</span> -auto-approve</div>
+            <div class="output ok">✓ VPC configured</div>
+            <div class="output ok">✓ ECR registry connected</div>
+            <div class="output ok">✓ EC2 capacity ready</div>
+            <div class="output ok">✓ ALB target health: healthy</div>
+            <div><span class="mono-muted">02</span> <span class="cyan">docker</span> compose up -d</div>
+            <div class="output">frontend    →  :3000</div>
+            <div class="output">backend     →  services</div>
+            <div class="output">mongodb     →  :27017</div>
+            <div class="output">redis       →  :6379</div>
+            <div class="cursor-line"><span class="cyan">jigar@cloud-lab</span>:<span class="green">~</span>$ <span class="blink">▊</span></div>
+          </div>
+        </div>
+        <div class="orbit-card orbit-a">AWS</div>
+        <div class="orbit-card orbit-b">IaC</div>
+        <div class="orbit-card orbit-c">CI/CD</div>
+      </div>
+    </section>
+
+    <section id="about" class="section-shell section-block">
+      <div class="section-heading" data-aos="fade-right">
+        <span class="section-number">01</span>
+        <div><p class="kicker">About</p><h2>Infrastructure mindset.<br><span>Cloud-native direction.</span></h2></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-card glass-card" data-aos="fade-up">
+          <p>I started from hands-on IT infrastructure and support, then pushed into AWS and DevOps by building, breaking and rebuilding real systems.</p>
+          <p>My projects combine <strong>AWS</strong>, <strong>Docker</strong>, <strong>Jenkins</strong>, <strong>Terraform</strong>, <strong>Ansible</strong>, <strong>Boto3</strong> and application deployment patterns around a MERN-style stack.</p>
+          <div class="quote">“Don’t just know the tool. Know what breaks when the tool meets reality.”</div>
+        </div>
+        <div class="metric-card glass-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="metric-ring"><span>∞</span></div>
+          <p class="metric-label">Troubleshooting loop</p>
+          <div class="flow"><span>Learn</span><i>→</i><span>Build</span><i>→</i><span>Break</span><i>→</i><span>Fix</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" class="section-shell section-block">
+      <div class="section-heading" data-aos="fade-right">
+        <span class="section-number">02</span>
+        <div><p class="kicker">Cloud stack</p><h2>The systems I’m <span>building with.</span></h2></div>
+      </div>
+      <div class="stack-grid">
+        <article class="stack-card glass-card tilt-card" data-aos="fade-up"><span class="stack-icon">☁</span><h3>AWS</h3><p>EC2 · VPC · IAM · S3 · ECR · ALB · ASG · ECS</p><div class="bar"><i style="width:88%"></i></div></article>
+        <article class="stack-card glass-card tilt-card" data-aos="fade-up" data-aos-delay="80"><span class="stack-icon">◈</span><h3>Containers</h3><p>Docker · Compose · ECR · container networking</p><div class="bar"><i style="width:84%"></i></div></article>
+        <article class="stack-card glass-card tilt-card" data-aos="fade-up" data-aos-delay="160"><span class="stack-icon">⚙</span><h3>CI/CD</h3><p>Jenkins · Groovy · GitHub Actions · pipeline automation</p><div class="bar"><i style="width:79%"></i></div></article>
+        <article class="stack-card glass-card tilt-card" data-aos="fade-up" data-aos-delay="240"><span class="stack-icon">⌘</span><h3>IaC & Automation</h3><p>Terraform · Boto3 · Ansible · infrastructure scripting</p><div class="bar"><i style="width:82%"></i></div></article>
+        <article class="stack-card glass-card tilt-card" data-aos="fade-up" data-aos-delay="320"><span class="stack-icon">◌</span><h3>Orchestration</h3><p>Kubernetes · Helm · deployment fundamentals</p><div class="bar"><i style="width:62%"></i></div></article>
+        <article class="stack-card glass-card tilt-card" data-aos="fade-up" data-aos-delay="400"><span class="stack-icon">▦</span><h3>Observability</h3><p>Prometheus · Grafana · Nginx · Linux troubleshooting</p><div class="bar"><i style="width:65%"></i></div></article>
+      </div>
+    </section>
+
+    <section id="projects" class="section-shell section-block">
+      <div class="section-heading" data-aos="fade-right">
+        <span class="section-number">03</span>
+        <div><p class="kicker">Selected work</p><h2>Projects that made me <span>debug harder.</span></h2></div>
+      </div>
+      <div class="project-grid">
+        <article class="project-card project-feature glass-card" data-aos="fade-up">
+          <div class="project-visual project-visual-a"><div class="network-grid"></div><span class="project-badge">CAPSTONE</span><div class="floating-node n1">GitHub</div><div class="floating-node n2">Jenkins</div><div class="floating-node n3">ECR</div><div class="floating-node n4">EC2</div></div>
+          <div class="project-content"><p class="kicker">Cloud deployment platform</p><h3>Slab.ai — MERN + AWS DevOps Pipeline</h3><p>Containerized services, CI/CD automation, infrastructure provisioning, AWS load balancing and remote deployment workflows.</p><div class="tag-row"><span>AWS</span><span>Docker</span><span>Jenkins</span><span>Terraform</span><span>Ansible</span></div><div class="project-footer"><a href="https://github.com/JigarMalam/CapstoneProjectG4Slab.AI" target="_blank" rel="noreferrer">View repository ↗</a><span>Hands-on deployment</span></div></div>
+        </article>
+        <article class="project-card glass-card" data-aos="fade-up" data-aos-delay="120">
+          <div class="small-visual"><div class="pulse-circle"></div><div class="health-chip">HEALTHY</div></div>
+          <div class="project-content"><p class="kicker">Infrastructure</p><h3>ALB + ASG Infrastructure</h3><p>Automated VPC, security groups, target groups and application load balancing with AWS infrastructure scripts.</p><div class="tag-row"><span>Boto3</span><span>ALB</span><span>ASG</span></div></div>
+        </article>
+        <article class="project-card glass-card" data-aos="fade-up" data-aos-delay="220">
+          <div class="small-visual pipeline-visual"><span>CODE</span><i>→</i><span>BUILD</span><i>→</i><span>SHIP</span></div>
+          <div class="project-content"><p class="kicker">Automation</p><h3>Jenkins CI/CD Flow</h3><p>Pipeline experiments for build, Docker image creation, ECR publishing and deployment stages.</p><div class="tag-row"><span>Jenkins</span><span>Groovy</span><span>ECR</span></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="journey" class="section-shell section-block journey-section">
+      <div class="section-heading" data-aos="fade-right">
+        <span class="section-number">04</span>
+        <div><p class="kicker">Journey</p><h2>From support desks<br>to <span>cloud systems.</span></h2></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        <article data-aos="fade-up"><div class="timeline-dot"></div><time>01</time><h3>IT Infrastructure</h3><p>Built the foundation through years of hands-on desktop and infrastructure support, incident handling and troubleshooting.</p></article>
+        <article data-aos="fade-up" data-aos-delay="80"><div class="timeline-dot"></div><time>02</time><h3>AWS & Cloud</h3><p>Started translating infrastructure knowledge into AWS concepts: compute, networking, IAM, storage and scaling.</p></article>
+        <article data-aos="fade-up" data-aos-delay="160"><div class="timeline-dot"></div><time>03</time><h3>DevOps Project Work</h3><p>Moved from isolated tools into pipelines: GitHub → Jenkins → Docker → ECR → AWS infrastructure → Ansible.</p></article>
+        <article data-aos="fade-up" data-aos-delay="240"><div class="timeline-dot"></div><time>04</time><h3>Cloud Career</h3><p>Now focused on Cloud Engineer, Cloud Support, DevOps and SRE opportunities where infrastructure experience becomes a competitive advantage.</p></article>
+      </div>
+    </section>
+
+    <section id="contact" class="section-shell section-block contact-section">
+      <div class="contact-card glass-card" data-aos="zoom-in">
+        <div><p class="kicker">05 · Contact</p><h2>Let’s build something<br><span>reliable.</span></h2><p class="contact-copy">Open to conversations about Cloud, DevOps, infrastructure and automation roles.</p></div>
+        <div class="contact-actions"><a class="button button-primary magnetic" href="mailto:jigarmalam13@gmail.com">Email me ↗</a><a class="button button-ghost magnetic" href="https://www.linkedin.com/in/jigar-malam-10191086/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a class="button button-ghost magnetic" href="https://github.com/JigarMalam" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell"><span>© <span id="year"></span> Jigar Malam</span><span>Built for the cloud. Served from the edge.</span></footer>
+
+  
+  <button id="back-top" class="floating-control back-top" aria-label="Back to top">↑</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
