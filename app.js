@@ -263,7 +263,7 @@
         startFallbackParticles();
       });
   }
-   /* =========================================
+  /* =========================================
    DEPLOY JIGAR
    ========================================= */
 
@@ -404,6 +404,38 @@ document.addEventListener("keydown", function(event) {
     }
 
 });
+
+window.deployJigar = deployJigar;
+window.closeDeploy = closeDeploy;
+
+function showNextLine() {
+
+        if (index >= messages.length) {
+
+            setTimeout(() => {
+                result.classList.add("show");
+                // Auto-scroll to the bottom when the result box appears
+                const body = document.querySelector(".deploy-modal .terminal-body");
+                if (body) body.scrollTop = body.scrollHeight;
+            }, 500);
+
+            return;
+        }
+
+        const line = document.createElement("div");
+        line.className = "terminal-line " + messages[index].className;
+        line.textContent = messages[index].text;
+        terminal.appendChild(line);
+
+        // Auto-scroll as each log line is printed
+        const body = document.querySelector(".deploy-modal .terminal-body");
+        if (body) body.scrollTop = body.scrollHeight;
+
+        index++;
+        setTimeout(showNextLine, 500);
+    }
+
+
 
   // A file:// URL cannot reliably load an ES module from a remote CDN because of browser origin rules.
   // Use a local 2D fallback there; the full Three.js scene runs on Cloudflare/HTTP(S).

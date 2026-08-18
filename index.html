@@ -44,7 +44,11 @@
         <div class="hero-actions">
           <a class="button button-primary magnetic" href="#projects">Explore projects <span>↗</span></a>
           <a class="button button-ghost magnetic" href="#contact">Let's connect</a>
-          <button class="button button-primary magnetic" onclick="deployJigar()"> Do Not Click </button></div>
+       
+          <button class="deploy-btn" onclick="deployJigar()">
+        🚀 Deploy Jigar
+    </button>
+
         <div class="hero-stats">
           <div><strong>6+</strong><span>Years IT experience</span></div>
           <div><strong>AWS</strong><span>Hands-on cloud focus</span></div>
@@ -157,11 +161,7 @@
   
   <button id="back-top" class="floating-control back-top" aria-label="Back to top">↑</button>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script src="app.js"></script>
-  <!-- Deploy Jigar Modal -->
+   <!-- Deploy Jigar Modal -->
 <div id="deployModal" class="deploy-modal">
 
     <div class="terminal-window">
@@ -177,8 +177,8 @@
                 jigar@devops:~$
             </span>
 
-            <button class="terminal-close" onclick="closeDeploy()">
-                ×
+            <button class="terminal-close" onclick="closeDeploy()"> &times; </button>
+                
             </button>
         </div>
 
@@ -188,9 +188,7 @@
 
             <div id="deployResult" class="deploy-result">
 
-                <div class="success-icon">
-                    🚀
-                </div>
+                
 
                 <h2>DEPLOYMENT SUCCESSFUL</h2>
 
@@ -248,5 +246,13 @@
     </div>
 
 </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="app.js"></script>
+
+ 
+
 </body>
 </html>
