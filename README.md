@@ -12,7 +12,7 @@
 
 **A sleek, modern, interactive DevOps & Cloud Engineering portfolio featuring real-time terminal emulation, 3D interactive graphics, and animated CI/CD workflows.**
 
-[Explore Live Demo](https://jigarmalam.github.io/) • [Report Bug](https://forms.gle/xYgzTjEwFk7v3YRc9) • [Request Feature](https://forms.gle/iebquFn8rvBctDfS7)
+[Explore Live Demo](https://jigarmalam.website/) • [Report Bug](https://forms.gle/xYgzTjEwFk7v3YRc9) • [Request Feature](https://forms.gle/iebquFn8rvBctDfS7)
 
 </div>
 
